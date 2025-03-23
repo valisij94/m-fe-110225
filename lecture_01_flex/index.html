@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Lecture_01 Positioning, Flexbox</title>
+</head>
+<body>
+    <main>
+        <section>
+            <h2 class="headerStyle">Just a header</h2>
+            <h3>Also header, but lower level</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id fugit nobis explicabo vel iusto. Optio totam aperiam illo! Voluptatem recusandae, velit voluptate quibusdam delectus expedita iure natus ad excepturi nemo?</p>
+
+            <button class="buttonStyle">Button. Only button.</button>
+
+            <div class="container">
+              <h3>Header for container div (it takes all available width)</h3>
+              <span>An example of inline element.</span>
+              <span>As we can see, inline elements don't take all available space</span>
+            </div>
+
+            <div class="experimental">
+              <h3 class="experimentalHeader">This div is intended for experiments with positioning. Use it as a container.</h3>
+              <p class="experimentalParagraph">This is a simple paragraph with dummy text!</p>
+              <button>OK</button>
+            </div>
+
+            <div class="container">
+              <h3>Another simple div which is only for filling HTML flow (to demonstrate positioning with experimental block)</h3>
+            </div>
+
+            <!-- This is to demonsrate "fixed" behaviour-->
+            <!--
+            <div class="tallContainer"></div>
+            <p>Containers</p>
+            <div class="tallContainer"></div>
+
+            <div class="floatingButton"></div>
+            -->
+
+            <div class="flexContainer">
+              <div class="flexChild box1">1</div>
+              <div class="flexChild box2">2</div>
+              <div class="flexChild box3">3</div>
+              <div class="flexChild box4">4</div>
+            </div>
+
+            <br/>
+
+            <div class="experimentalFlexContainer">
+              <div class="flexChild box1">1</div>
+              <div class="flexChild box2">2</div>
+              <div class="flexChild box3">3</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

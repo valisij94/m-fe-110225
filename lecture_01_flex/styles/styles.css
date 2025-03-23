@@ -1,0 +1,71 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.headerStyle {
+    text-align: center;
+    color: red;
+    font-size: 20px;
+    padding: 10px 0;
+}
+
+.experimental {
+    width: 80%;
+    border: 1px solid black;
+    background-color: lightcyan;
+    margin: 20px auto;
+    padding: 10px 0;
+}
+
+.experimental h3 {
+    background-color: aquamarine;
+}
+
+.experimentalParagraph {
+    background-color: lightsalmon;
+}
+
+.tallContainer {
+    height: 50vh;
+    background-color: lightseagreen;
+}
+
+.floatingButton {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    bottom: 15%;
+    right: 15%;
+    border: 1px solid blue;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.flexContainer {
+    display: flex;
+    border: 1px solid gray;
+    background-color: lightgrey;
+}
+
+.flexChild {
+    width: 100px;
+    height: 100px;
+}
+
+.box1 {
+    background-color: red;
+}
+
+.box2 {
+    background-color: blue;
+}
+
+.box3 {
+    background-color: aqua;
+}
+
+.box4 {
+    background-color: yellowgreen
+}
