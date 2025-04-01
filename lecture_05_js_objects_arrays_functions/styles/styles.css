@@ -1,0 +1,74 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.headerStyle {
+    text-align: center;
+    color: red;
+    font-size: 20px;
+    padding: 10px 0;
+}
+
+.gridContainer {
+    background-color: lightgray;
+    border: 1px solid darkblue;
+    display: grid;
+}
+
+.box1 {
+    background-color: red;
+}
+
+.box2 {
+    background-color: blue;
+}
+
+.box3 {
+    background-color: aqua;
+}
+
+.box4 {
+    background-color: yellowgreen
+}
+
+.box5 {
+    background-color: green;
+}
+
+.box6 {
+    background-color: violet;
+}
+
+.box7 {
+    background-color: lightsalmon;
+}
+
+.box8 {
+    background-color: goldenrod
+}
+
+.box9 {
+    background-color: teal
+}
+
+.experimental button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.experimentalFlexContainer {
+    display: flex;
+    height: 305px;
+    border: 1px solid red;
+}
+
+.experimentalFlexContainer .box2 {
+    align-self: center;
+}
+
+.experimentalFlexContainer .box3 {
+    align-self: flex-end;
+}
