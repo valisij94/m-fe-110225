@@ -123,12 +123,12 @@ console.log( timon.age ); // undefined - у объекта нет свойств
 Чтобы проверить наличие свойства у объекта, есть несколько способов, мы пока что рассмотрим способ через `in`.
 
 ```
-const obj = { name: 'Vasya' };
+const 'obj' = { name: 'Vasya' };
 if ( name in obj ) {
   console.log('There is a name!'); // все норм
 }
 
-if ( age in obj ) {
+if ( 'age' in obj ) {
   console.log('It has age!'); // это не выполнится
 } else {
   console.log('There is no age!'); // это выполнится
