@@ -1,0 +1,13 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.simpleButton {
+    background-color: #0096CD;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+}
