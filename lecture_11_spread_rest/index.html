@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Lecture_11 JS Events bubbling</title>
+</head>
+<body>
+    <main>
+        <h2 class="greeting">JS localStorage - objects and arrays</h2>
+
+        <div class="container" id="bubblingBlock">
+            <h4>This is a block for bubbling training</h4>
+            <button class="button" id="firstButton">First button</button>
+            <p class="simpleParagraph">Paragraph under the first button</p>
+            <button class="button" id="secondButton">Second button</button>
+            <p class="simpleParagraph">Paragraph under the second button</p>
+            <button class="button" id="thirdButton">Third button</button>
+            <p>Paragraph under the third button</p>
+
+        </div>
+        <div class="container" id="inputsBlock">
+            <h3>Это блок с инпутом</h3>
+            <p>В этом блоке содержится несколько инпут. Мы будем работать с валидацией этого инпута, добавлять обработчики на некоторые события, и писать свою валидацию.</p>
+            <input id="testInput" class="input" placeholder="Test input"/>
+        </div>
+
+        <div class="productsContainer"></div>
+    </main>
+
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
