@@ -61,7 +61,7 @@ const timon = {
 
 const newTimon = { ...timon };
 newTimon.friends.push('Tukano');
-console.log(timon.frineds.includes('Tukano'));
+console.log(timon.friends.includes('Tukano'));
 ```
 
 ### Мотивация использования - зачем все это нужно
