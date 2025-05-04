@@ -152,7 +152,7 @@ const storePromise = new Promise( function(resolve, reject) {
 }).catch( function(badPaper) {
    // что-то не так, кладем расписку в папку с документами
    handleBadPaper(badPaper); // водила кладет расписку в папку с документами
-}).finally(() { // вне зависимости от результата, машина уедет со склада
+}).finally(() => { // вне зависимости от результата, машина уедет со склада
    driveAvay();
 });
 ```

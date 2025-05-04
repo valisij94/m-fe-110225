@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.productCard {
+    border: 1px solid blue;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 5px 5px 15px lightblue;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.productsContainer {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.productImg {
+    max-width: 100%;
+}
+
+.addToCartBtn {
+    background-color: rgb(10, 135, 8);
+}
+
+.removeFromCartBtn {
+    background-color: rgb(169, 26, 10);
+}
