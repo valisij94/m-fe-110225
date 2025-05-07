@@ -77,7 +77,6 @@ myPromise.then( res => console.log(res) );
 
 console.log('Finish');
 
-// Start - Finish - Promise Result
 ```
 
 2.
