@@ -8,7 +8,7 @@ function randomPromiseCreator() {
 
 const makeRacer = (racer, car) => {
   return new Promise( resolve => {
-    const raceTime = Math.random * 1000;
+    const raceTime = Math.random() * 1000;
     setTimeout(resolve, raceTime, `Racer ${racer} on car ${car} finished! Time: ${raceTime}`)
   });
 }
