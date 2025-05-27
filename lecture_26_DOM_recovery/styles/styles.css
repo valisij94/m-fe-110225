@@ -7,3 +7,31 @@
 img {
     max-width: 100%;
 }
+
+.dogsSlider {
+    max-width: 60vw;
+    margin: 0 auto;
+}
+
+.sliderView {
+    /* скрываем всех потомков, которые вылазят за пределы "перископа" */
+    overflow: clip;
+    position: relative;
+}
+
+.sliderContainer {
+    min-width: 300px;
+    max-width: 100%;
+}
+
+.imagesContainer {
+    display: flex;
+    position: relative;
+    left: 0;
+    aspect-ratio: 1 / 1;
+    transition: left .5s;
+}
+
+.imagesContainer > img.sliderImg {
+    object-fit: cover;
+}
