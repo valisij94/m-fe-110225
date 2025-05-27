@@ -47,7 +47,7 @@ class First {
 
   method() {
     console.log('Async');
-    return new Promise( resolve => {
+    return new Promise( 9resolve => {
       console.log('Promise');
       resolve('Result');
     });
@@ -58,9 +58,12 @@ let firstInstance = new First();
 
 console.log('Before');
 firstInstance.method()
-  .finally( () => console.log('Finally') )
-  .then( (res) => console.log(res) );
+  .then( (res) => console.log(res) )
+  .finally( () => console.log('Finally') );
 console.log('After');
+
+// Before -> Async -> Promise -> After -> Finally -> Result (Victoria, Jana, Dmitriy)
+// Before -> Async -> Finally -> After -> Promise -> Result (Olga Chirkova)
 ```
 
 4. Что выведет код:
