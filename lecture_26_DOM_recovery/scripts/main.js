@@ -10,6 +10,8 @@ class Slider {
   #imagesArray;
   // ссылка на ДОМ-элемент ленты изображений
   #imagesContainerEl;
+  // ссылка на ДОМ-элемент контейнера точек навигации
+  #dotsContainerEl;
 
   constructor(selector, imagesArray) {
     const parent = document.querySelector(selector);
@@ -21,26 +23,31 @@ class Slider {
     this.#init();
   }
 
-  #movePrev() {
-    let nextSlideIndex = this.#currentImgIndex - 1;
-    if (nextSlideIndex < 0) {
-      nextSlideIndex = this.#imagesArray.length - 1;
+  #goToSlide(slideNum) {
+    let targetSlideIndex = slideNum;
+    if (slideNum < 0) {
+      targetSlideIndex = this.#imagesArray.length - 1;
     }
-    // меняем состояние слайдера: говорим что показываем след.слайд
-    this.#currentImgIndex = nextSlideIndex;
+    if (slideNum >= this.#imagesArray.length ) {
+      targetSlideIndex = 0;
+    }
+    // синхронизируем блок навигации
+    const oldDot = this.#dotsContainerEl.querySelector(`span[data-img-index="${this.#currentImgIndex}"]`);
+    const newDot = this.#dotsContainerEl.querySelector(`span[data-img-index="${targetSlideIndex}"]`);
+    oldDot.classList.remove('sliderActiveDot');
+    newDot.classList.add('sliderActiveDot');
+    // меняем состояние слайдера: говорим что показываем целевой слайд
+    this.#currentImgIndex = targetSlideIndex;
     // синхронизируем смещение ленты с индексом того слайда, который показываем
     this.#imagesContainerEl.style.left = (-1 * this.#currentImgIndex * 100) + '%';
   }
 
+  #movePrev() {
+    this.#goToSlide(this.#currentImgIndex - 1)
+  }
+
   #moveNext() {
-    let nextSlideIndex = this.#currentImgIndex + 1;
-    if (nextSlideIndex >= this.#imagesArray.length ) {
-      nextSlideIndex = 0;
-    }
-    // меняем состояние слайдера: говорим что показываем след.слайд
-    this.#currentImgIndex = nextSlideIndex;
-    // синхронизируем смещение ленты с индексом того слайда, который показываем
-    this.#imagesContainerEl.style.left = (-1 * this.#currentImgIndex * 100) + '%';
+    this.#goToSlide(this.#currentImgIndex + 1)
   }
 
   #init() {
@@ -57,6 +64,28 @@ class Slider {
     const imagesContainerEl = document.createElement('div');
     imagesContainerEl.classList.add('imagesContainer');
     this.#imagesContainerEl = imagesContainerEl;
+    // создание контейнера для точек навигации
+    const dotsContainer = document.createElement('div');
+    dotsContainer.classList.add('dotsContainer');
+    // создание массива для точек навигации
+    const dotsArray = this.#imagesArray.map( (img, idx) => {
+      const point = document.createElement('span');
+      point.classList.add('sliderDot');
+      if (idx === 0) {
+        point.classList.add('sliderActiveDot');
+      }
+      point.dataset.imgIndex = idx;
+      return point;
+    });
+    dotsContainer.addEventListener( 'click', event => {
+      if (event.target.nodeName !== 'SPAN') return;
+      const targetIndex = event.target.dataset.imgIndex;
+      this.#goToSlide(+targetIndex);
+    });
+    // запоминаем ссылку на контейнер навигации в приватное свойство класса
+    this.#dotsContainerEl = dotsContainer;
+    dotsContainer.append( ...dotsArray );
+
     // создание картинок, и добавление их в контейнер
     this.#imagesArray.forEach( imgData => {
       const imgEl = document.createElement('img');
@@ -78,7 +107,7 @@ class Slider {
     navContainerEl.append(btnPrev, btnNext);
     // собираем все воедино
     sliderViewEl.append(imagesContainerEl);
-    sliderContainerEl.append(navContainerEl, sliderViewEl);
+    sliderContainerEl.append(navContainerEl, sliderViewEl, dotsContainer);
     // добавляем контейнер слайдера в родительский ДОМ-узел
     this.#rootNode.append(sliderContainerEl);
   }

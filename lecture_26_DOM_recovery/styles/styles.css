@@ -35,3 +35,28 @@ img {
 .imagesContainer > img.sliderImg {
     object-fit: cover;
 }
+
+/* Стили для точек навигации и контейнера точек */
+.sliderDot {
+    display: inline-block;
+    background-color: gray;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.sliderDot:hover {
+    background-color: darkgray;
+}
+
+.sliderActiveDot {
+    background-color: black;
+}
+
+.dotsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 0;
+}
