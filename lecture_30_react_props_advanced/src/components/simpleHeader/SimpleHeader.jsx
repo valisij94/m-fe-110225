@@ -1,7 +1,7 @@
 
-function SimpleHeader( { headerText = 'Default header text' } ) {
+function SimpleHeader( { headerText = 'Default header text', customStyles } ) {
 
-  return <h1 className="greenBackground">{headerText}</h1>;
+  return <h1 style={customStyles} className="greenBackground">{headerText}</h1>;
 }
 
 export default SimpleHeader;

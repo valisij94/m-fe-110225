@@ -1,13 +1,19 @@
 import './App.css'
-import SimpleHeader from './components/simpleHeader/SimpleHeader.jsx';
+import DwarfCard from './components/dwarf/DwarfCard.jsx';
 
 function App() {
 
+
   return (
     <>
-      <SimpleHeader headerText="Welcome to the Middle-Earth conference!"/>
+      <DwarfCard
+        foo="Bar"
+        dwarfData={ {name: 'Torin', nickname: 'The OakShield', weapon: 'Sword', age: 327} }
+      />
+
     </>
   )
+
 }
 
 export default App

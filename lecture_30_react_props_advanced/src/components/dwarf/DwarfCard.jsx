@@ -1,10 +1,10 @@
-function DwarfCard( props ) {
+function DwarfCard( { dwarfData } ) {
 
   return (
     <div className="dwarfCardContainer">
-      <h3>{props.name} {props.nickname}</h3>
-      <p>{props.age}</p>
-      <p>{props.weapon}</p>
+      <h3>{dwarfData.name} {dwarfData.nickname}</h3>
+      <p>{dwarfData.age}</p>
+      <p>{dwarfData.weapon}</p>
     </div>
   )
 }
