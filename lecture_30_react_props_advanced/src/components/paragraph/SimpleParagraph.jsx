@@ -1,8 +1,8 @@
-function SimpleParagraph( props ) {
+function SimpleParagraph( {textColor, textContent, clickHandler} ) {
 
   return (
     <div>
-      <p style={ {color: props.textColor} }>{props.textContent}</p>
+      <p onClick={clickHandler} style={ {color: textColor} }>{textContent}</p>
     </div>
   )
 }
