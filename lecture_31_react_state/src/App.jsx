@@ -1,32 +1,18 @@
-import './App.css'
-import DwarfCard from './components/dwarf/DwarfCard';
-import DwarfList from './components/dwarfList/DwarfList';
-import SimpleParagraph from './components/paragraph/SimpleParagraph';
-import SimpleHeader from './components/simpleHeader/SimpleHeader';
-import { dwarwesArray } from './data/dwarwes';
 
-function SimpleWrapper( {children} ) {
-  return <div className='simpleWrapperClass'> {children} </div>
-}
+import './App.css'
+import Human from './components/human/Human'
+import SimpleCounter from './components/simpleCounter/SimpleCounter'
+import SimpleInput from './components/simpleInput/SimpleInput'
+
 
 function App() {
 
-  const describeClickHandler = () => {
-    console.log('Clicked on describe!');
-  }
-
+  console.log('Render App component')
   return (
     <>
-      <SimpleWrapper>
-        <h2>Hello from simple wrapper</h2>
-        <p>Paragraph</p>
-        <DwarfCard
-          dwarfData={dwarwesArray[0]}
-          describeClickHandler={describeClickHandler}
-        />
-
-        <DwarfList dwarwes={dwarwesArray} />
-      </SimpleWrapper>
+      <SimpleInput placeholder="Something"/>
+      <SimpleInput placeholder="Required input" required={true}/>
+      <Human humanName="Human1"/>
     </>
   )
 
