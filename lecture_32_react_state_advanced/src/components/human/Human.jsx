@@ -14,8 +14,24 @@ function Human( {humanName} ) {
     }
   }
 
-  // Отладочное сообщение, будет выводиться каждый раз, когда отрисовывается наш компонент
-  console.log(`Rendering human with name ${humanName}, pulse is ${pulse}, temperature is ${temperature}`);
+
+  const [value, setValue] = useState(''); // это для инпута, в который будем вводить названия вещей чтобы положить в карман
+  const [pockets, setPockets] = useState( ['phone', 'keys'] ); // по умолчанию в карманах телефон и ключи
+
+  const addSomething = () => {
+    // Кладем в карман
+    if (value) {
+
+      setPockets( (oldPockets) => {
+        return [ ...oldPockets, value ];
+      } );
+    }
+  }
+
+  // Обработчик события ввода чего-то в инпут
+  const handleInputChange = (e) => {
+    setValue(e.target.value);
+  }
 
   return (
     <div>
@@ -24,6 +40,13 @@ function Human( {humanName} ) {
       <p>Now my temperature is {temperature}</p>
       { pulse > 130 && <p>Wow, pulse is greater than 130! Let me rest a bit.</p>}
       <button onClick={makePullUps}>Make pull ups!</button>
+
+      <input value={value} onChange={handleInputChange} placeholder="put something into pockets"/>
+      <button onClick={addSomething}>Add into pockets</button>
+      <h3>Pockets</h3>
+      {
+        pockets.map( thing => <p key={thing}>{thing}</p>)
+      }
     </div>
   )
 }

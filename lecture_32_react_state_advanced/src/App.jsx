@@ -1,13 +1,14 @@
 
 import './App.css'
 import Human from './components/human/Human'
+import LonelyMountainRoute from './components/mountainRoute/MountainRoute'
 
 
 function App() {
 
   return (
     <>
-      <Human humanName="Human1"/>
+      <LonelyMountainRoute />
     </>
   )
 
