@@ -1,14 +1,19 @@
 
+import { useState } from 'react'
 import './App.css'
-import Human from './components/human/Human'
-import LonelyMountainRoute from './components/mountainRoute/MountainRoute'
+import TodoStats from './components/todos/TodoStats'
+import LoginForm from './components/loginForm/LoginForm'
 
 
 function App() {
 
+  console.log('Render whole App')
+
+  const [loginValue, setLoginValue] = useState('');
   return (
     <>
-      <LonelyMountainRoute />
+      { loginValue && <h2>Hello, {loginValue}!</h2>}
+      <LoginForm setLoginValue={setLoginValue}/>
     </>
   )
 
