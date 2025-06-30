@@ -1,8 +1,8 @@
 
 import { useState, useEffect } from 'react'
 import './App.css'
-import ClicksCounter from './components/clicksCounter/ClicksCounter';
-import TodoList from './components/todos/TodoList';
+import ClicksCounter from './components/clicksCounter/ClicksCounter.jsx';
+import TodoList from './components/todos/TodoList.jsx';
 import {todoList} from './data/todos.js';
 import UserInteractionCounter from './components/userInteractionCounter/UserInteractionCounter.jsx';
 
