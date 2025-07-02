@@ -3,6 +3,12 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import TodoList from './components/todos/TodoList.jsx';
 import ProductCard from './components/productCard/ProductCard.jsx';
+import Button from './components/button/Button.jsx';
+import { ThemeContext, ThemeContextWrapper } from './context/ThemeContext.jsx';
+import { useContext } from 'react';
+import { CounterContext } from './context/CounterContext.jsx';
+import ClicksCounter from './components/clicksCounter/ClicksCounter.jsx';
+import Header from './components/header/Header.jsx';
 
 
 function App() {
@@ -39,15 +45,11 @@ function App() {
 
   return (
     <>
-      <h3>Demonstration of useEffect</h3>
+      <ThemeContextWrapper>
+        <Header />
 
-      <ProductCard productId={1}/>
-      <p>The button here manages the visibility of the ClicksCounter component to demonstrate different phases of the component's lifecycle.</p>
-
-      <button onClick={manageTodoListVisibility}>Show/hide TodoList</button>
-
-      { error && <p>Something went wrong!</p>}
-      { loading ? <p>Please wait!</p> : (todoListVisible && <TodoList todoHeader='My Todos' todos={todos} dropTodo={dropTodo} />) }
+        <TodoList todos={todos} dropTodo={dropTodo} />
+      </ThemeContextWrapper>
     </>
   )
 
