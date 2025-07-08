@@ -1,0 +1,14 @@
+.button {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.button_light {
+  color: darkblue;
+  background-color: lightskyblue
+}
+
+.button_dark {
+  color: white;
+  background-color: darkblue
+}
