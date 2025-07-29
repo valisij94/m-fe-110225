@@ -1,32 +1,22 @@
-import { useEffect } from 'react';
-import TodoItem from "./TodoItem";
-import { useRef } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { dropTodo } from "../../redux/actions/todoActions";
 
-export default function TodoList( { todoHeader = "Default todos header", todos, dropTodo } ) {
+export default function TodoList( { todoHeader = "Default todos header" } ) {
 
-  useEffect( () => {
-    console.log('TodoHeader prop is changed!');
-  }, [ todoHeader ] );
+  const todos = useSelector( state => state.todos );
 
-  useEffect( () => {
-    return () => {
-      console.log('TodoList is unmounted!');
-    }
-  }, []);
+  const dispatch = useDispatch();
 
-  useEffect( () => {
-    if (todos) {
-      console.log('TodoList size: ', containerRef.current.offsetWidth, containerRef.current.offsetHeight)
-    }
-  }, [todos]);
-
-  const containerRef = useRef(null);
+  const dropTodoHandler = (todo) => {
+    dispatch( dropTodo(todo) );
+  }
 
   return  (
-    <div className="todoListContainer" ref={containerRef}>
+    <div className="todoListContainer">
       <h3>{todoHeader}</h3>
+      <h4>Now we have {todos.todosCount} todos!</h4>
       {
-        todos.map( todo => <TodoItem key={todo.id} todo={todo} dropTodo={dropTodo} /> )
+        todos.todoList.map( todo => <p onClick={ () => dropTodoHandler(todo) } key={todo}>{todo}</p> )
       }
     </div>
   )
