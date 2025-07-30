@@ -1,16 +1,27 @@
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { decrementAction, incrementAction } from '../../redux/actions/counterActions';
+import { createIncAction, decrement, incrementByAmount } from '../../redux/slices/counterSlice';
 
 export default function Counter() {
 
-  const counter = useSelector( state => state.counter );
+  const { value } = useSelector( state => state.counter );
   const dispatch = useDispatch();
+
+  const [inputValue, setInputValue] = useState('');
+
+  const addSomethingToCounter = () => {
+    if (inputValue) {
+      dispatch( incrementByAmount( +inputValue ) );
+    }
+  }
 
   return (
     <div>
-      <p>Now counter is: {counter}</p>
-      <button onClick={() => dispatch(incrementAction())}>Increment</button>
-      <button onClick={() => dispatch(decrementAction())}>Decrement</button>
+      <p>Now counter is: {value}</p>
+      <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} type="text"/>
+      <button onClick={() => dispatch(createIncAction())}>Increment</button>
+      <button onClick={() => dispatch(decrement())}>Decrement</button>
+      <button onClick={addSomethingToCounter}>Add something</button>
     </div>
   )
 }

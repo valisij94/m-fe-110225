@@ -1,12 +1,8 @@
-import { createStore, combineReducers } from 'redux';
-import { counterReducer } from './reducers/counterReducer';
-import { todoReducer } from './reducers/todoReducer';
-import { colorReducer } from './reducers/colorReducer';
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from './slices/counterSlice';
 
-export const store = createStore(
-  combineReducers({
+export default configureStore({
+  reducer: {
     counter: counterReducer,
-    todos:   todoReducer,
-    color:   colorReducer
-  })
-);
+  },
+})
