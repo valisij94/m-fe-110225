@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { dropTodo } from "../../redux/actions/todoActions";
+import { dropTodo } from "../../redux/slices/todosSlice";
 
 export default function TodoList( { todoHeader = "Default todos header" } ) {
 

@@ -4,7 +4,8 @@ import Header from './components/header/Header.jsx';
 import { Routes, Route, Link } from "react-router";
 import Home from './pages/Home.jsx';
 import ProductsPage from './pages/ProductsPage.jsx';
-import Counter from './components/counter/Counter.jsx';
+import TodoList from './components/todos/TodoList.jsx';
+import AddTodo from './components/todos/AddTodo.jsx';
 
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
         <Route path='/products' element={<ProductsPage />} />
         <Route path="/" element={<Home />} />
       </Routes>
-      <Counter />
+      <AddTodo />
+      <TodoList />
     </>
   );
 }
