@@ -6,8 +6,19 @@ import Home from './pages/Home.jsx';
 import ProductsPage from './pages/ProductsPage.jsx';
 import TodoList from './components/todos/TodoList.jsx';
 import AddTodo from './components/todos/AddTodo.jsx';
+import { useEffect } from 'react';
+import { fetchProducts } from './redux/slices/productsSlice.js';
+import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
+
+  const products = useSelector( state => state.products );
+  console.log('Products state: ', products);
+  const dispatch = useDispatch();
+
+  useEffect( () => {
+    dispatch( fetchProducts() );
+  }, []);
 
   return (
     <>

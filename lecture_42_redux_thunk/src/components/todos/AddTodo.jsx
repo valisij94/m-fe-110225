@@ -13,7 +13,7 @@ export default function AddTodo() {
   const dispatch = useDispatch();
 
   const btnClickHandler = () => {
-    if (todo) dispatch(addTodo(todo));
+    if (todo) dispatch(addTodo( {id: Date.now(), todo: todo} ));
     setTodo('');
   }
 

@@ -1,23 +1,43 @@
-// src/redux/slices/counterSlice.js
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+
+export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
+  const response = await fetch('https://dummyjson.com/todos');
+  const todos = await response.json();
+  return todos.todos;
+})
 
 export const todosSlice = createSlice({
   name: 'todos',
   initialState: {
-    todoList: [],
-    todosCount: 0
+    todos: [],
+    filters: null,
+    status: 'idle',
+    error: ''
   },
   reducers: {
     addTodo: (state, action) => {
-      state.todoList.push(action.payload);
-      state.todosCount += 1;
+      state.todos.push(action.payload);
     },
     dropTodo: (state, action) => {
-      const newTodos = state.todoList.filter( (todo) => todo !== action.payload );
-      state.todoList = newTodos;
-      state.todosCount = newTodos.length;
-    }
+      state.todos = state.todos.filter(el => el.id !== action.payload)
+    },
+    applyFilters: () => {},
+    clearFilters: () => {},
   },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchTodos.pending, (state) => {
+        state.status = 'loading'
+      })
+      .addCase(fetchTodos.fulfilled, (state, action) => {
+        state.todos = action.payload
+        state.status = 'idle'
+      })
+      .addCase(fetchTodos.rejected, (state, action) => {
+        state.error = action.payload
+        state.status = 'idle'
+      })
+  }
 });
 
 // Action creators are generated for each case reducer function
