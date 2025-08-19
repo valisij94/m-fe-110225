@@ -9,7 +9,6 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addProduct: (state, action) => {
-      // action.payload = { id: 1, name: 'Apple', price: 10 }
       if (state.cartProducts[action.payload.id]) {
         state.cartProducts[action.payload.id].count += 1;
       } else {
